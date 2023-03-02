@@ -8,8 +8,6 @@
 
 int main(int argc, char** argv)
 {
-    int k = 0;
-    k += 1;
     LibSeek::SeekThermal seek(argc == 2 ? argv[1] : "");
     cv::Mat frame, grey_frame;
 
@@ -25,13 +23,8 @@ int main(int argc, char** argv)
         }
 
         cv::normalize(frame, grey_frame, 0, 65535, cv::NORM_MINMAX);
-        //cv::imshow("LWIR", grey_frame);
-        if (k % 20 == 0)
-        {
-        	cv::imwrite("/home/youbot/catkin_ws/src/libseek-thermal-master/photos/Gray_Image.jpg", grey_frame);
-        }
+        cv::imshow("LWIR", grey_frame);
 
-	
         char c = cv::waitKey(10);
         if (c == 's') {
             cv::waitKey(0);
