@@ -322,7 +322,8 @@ int main(int argc, char** argv) {
         if (mode == "v4l2") {
             v4l2_out(v4l2, outframe);
         } else if (mode == "window") {
-            imshow(WINDOW_NAME, outframe);
+            //imshow(WINDOW_NAME, outframe);
+            cv::imwrite(outfile, outframe);
             char c = waitKey(10);
             key_handler(c);
 
