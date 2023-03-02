@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 
         cv::normalize(frame, grey_frame, 0, 65535, cv::NORM_MINMAX);
         //cv::imshow("LWIR", grey_frame);
-        if k % 20 == 0
+        if (k % 20 == 0)
         {
         	cv::imwrite("/home/youbot/catkin_ws/src/libseek-thermal-master/photos/Gray_Image.jpg", grey_frame);
         }
