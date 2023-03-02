@@ -28,7 +28,7 @@ int main(int argc, char** argv)
         //cv::imshow("LWIR", grey_frame);
         if k % 20 == 0
         {
-        	cv::imwrite("/Users/nickporter/Desktop/Gray_Image.bmp", grey_frame);
+        	cv::imwrite("/home/youbot/catkin_ws/src/libseek-thermal-master/photos/Gray_Image.jpg", grey_frame);
         }
 
 	
