@@ -52,7 +52,7 @@ int main(int argc, char** argv)
     if (_smoothing)
         smoothing = args::get(_smoothing);
 
-    int warmup = 1;
+    int warmup = 10;
     if (_warmup)
         warmup = args::get(_warmup);
 
@@ -114,7 +114,9 @@ int main(int argc, char** argv)
             avg_frame += frame;
         }
         cv::waitKey(10);
-            // Average the collected frames
+    }
+
+    // Average the collected frames
     avg_frame /= smoothing;
     avg_frame.convertTo(frame_u16, CV_16UC1);
 
@@ -147,9 +149,5 @@ int main(int argc, char** argv)
     }
 
     cv::imwrite(outfile, outframe);
-
-    }
-
-	return 0;
-
+    return 0;
 }
