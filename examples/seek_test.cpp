@@ -15,6 +15,7 @@ int main(int argc, char** argv)
         std::cout << "failed to open seek cam" << std::endl;
         return -1;
     }
+    std::string outfile = "output1.png";
 
     while(1) {
         if (!seek.read(frame)) {
@@ -24,7 +25,7 @@ int main(int argc, char** argv)
         //cv::imshow("LWIR", grey_frame);
      	//cv::cvtColor(gray_frame, color, cv::COLOR_GRAY2BGR)
 
-        cv::imwrite("Gray_Image.jpg", grey_frame);
+        cv::imwrite(outfile, grey_frame);
 
         char c = cv::waitKey(10);
         if (c == 's') {
