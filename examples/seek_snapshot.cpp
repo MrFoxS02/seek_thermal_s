@@ -106,7 +106,6 @@ int main(int argc, char** argv)
         }
 
         cam->retrieve(frame_u16);
-        std::cout << frame_u16;
         frame_u16.convertTo(frame, CV_32FC1);
 
         if (avg_frame.rows == 0) {

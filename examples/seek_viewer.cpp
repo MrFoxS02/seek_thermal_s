@@ -300,11 +300,7 @@ int main(int argc, char** argv) {
         }
 
         std::cout << "Video stream created, dimension: " << outframe.cols << "x" << outframe.rows << ", fps:" << fps << std::endl;
-    } else if (mode == "window") {
-        namedWindow(WINDOW_NAME, cv::WINDOW_NORMAL);
-        setWindowProperty(WINDOW_NAME, WindowPropertyFlags::WND_PROP_ASPECT_RATIO, cv::WINDOW_KEEPRATIO);
-        resizeWindow(WINDOW_NAME, outframe.cols, outframe.rows);
-    }
+	}
 
 
     // Main loop to retrieve frames from camera and write them out
@@ -322,9 +318,9 @@ int main(int argc, char** argv) {
         if (mode == "v4l2") {
             v4l2_out(v4l2, outframe);
         } else if (mode == "window") {
-            imshow(WINDOW_NAME, outframe);
-            char c = waitKey(10);
-            key_handler(c);
+            //imshow(WINDOW_NAME, outframe);
+            cv::imwrite(outfile, outframe);
+
 
             // If the window is closed by the user all window properties will return -1 and we should terminate
             if (getWindowProperty(WINDOW_NAME, WindowPropertyFlags::WND_PROP_FULLSCREEN) == -1) {
