@@ -52,7 +52,7 @@ int main(int argc, char** argv)
     if (_smoothing)
         smoothing = args::get(_smoothing);
 
-    int warmup = 10;
+    int warmup = 1;
     if (_warmup)
         warmup = args::get(_warmup);
 
@@ -106,6 +106,7 @@ int main(int argc, char** argv)
         }
 
         cam->retrieve(frame_u16);
+        std::cout << frame_u16;
         frame_u16.convertTo(frame, CV_32FC1);
 
         if (avg_frame.rows == 0) {
@@ -114,9 +115,7 @@ int main(int argc, char** argv)
             avg_frame += frame;
         }
         cv::waitKey(10);
-    }
-
-    // Average the collected frames
+            // Average the collected frames
     avg_frame /= smoothing;
     avg_frame.convertTo(frame_u16, CV_16UC1);
 
@@ -149,5 +148,9 @@ int main(int argc, char** argv)
     }
 
     cv::imwrite(outfile, outframe);
-    return 0;
+
+    }
+
+	return 0;
+
 }

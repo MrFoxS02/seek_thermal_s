@@ -21,11 +21,16 @@ int main(int argc, char** argv)
         if (!seek.read(frame)) {
             std::cout << "no more LWIR img" << std::endl;
             return -1;
+        std::cout << frame;
+        std::cout << "..";
+        std::cout << gray_frame;
+        
         cv::normalize(frame, grey_frame, 0, 65535, cv::NORM_MINMAX);
+        
         //cv::imshow("LWIR", grey_frame);
      	//cv::cvtColor(gray_frame, color, cv::COLOR_GRAY2BGR)
 
-        cv::imwrite(outfile, grey_frame);
+        //cv::imwrite(outfile, grey_frame);
 
         char c = cv::waitKey(10);
         if (c == 's') {
