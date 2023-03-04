@@ -2,9 +2,7 @@ import os, sys, re, subprocess
 
 if __name__ == '__main__':
 	cmd = ['./../build/examples/seek-test']
-	proc = subprocess.Popen(cmd,
-	 stdout=subprocess.PIPE,
-	)
+	proc = subprocess.Popen(cmd)
 
 	# cv2.namedWindow('seek', cv2.WINDOW_NORMAL)
 
