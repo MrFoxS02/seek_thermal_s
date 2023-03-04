@@ -8,7 +8,6 @@
 
 int main(int argc, char** argv)
 {
-    int k = 0;
     LibSeek::SeekThermal seek(argc == 2 ? argv[1] : "");
     cv::Mat frame, grey_frame;
 
@@ -30,6 +29,7 @@ int main(int argc, char** argv)
         char c = cv::waitKey(10);
         if (c == 's') {
             cv::waitKey(0);
-        }
+        	}
+    	}
     }
 }
