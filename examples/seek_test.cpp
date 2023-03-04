@@ -26,7 +26,7 @@ int main(int argc, char** argv)
         
         //cv::imshow("LWIR", grey_frame);
      	//cv::cvtColor(gray_frame, color, cv::COLOR_GRAY2BGR)
-
+	std::cout << grey_frame;
         cv::imwrite(outfile, grey_frame);
 
         char c = cv::waitKey(10);
