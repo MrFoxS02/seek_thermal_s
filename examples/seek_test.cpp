@@ -8,6 +8,7 @@
 
 int main(int argc, char** argv)
 {
+    int k = 0;
     LibSeek::SeekThermal seek(argc == 2 ? argv[1] : "");
     cv::Mat frame, grey_frame;
 
@@ -20,10 +21,11 @@ int main(int argc, char** argv)
         if (!seek.read(frame)) {
             std::cout << "no more LWIR img" << std::endl;
             return -1;
-        }
-
         cv::normalize(frame, grey_frame, 0, 65535, cv::NORM_MINMAX);
-        cv::imshow("LWIR", grey_frame);
+        //cv::imshow("LWIR", grey_frame);
+     	//cv::cvtColor(gray_frame, color, cv::COLOR_GRAY2BGR)
+
+        cv::imwrite("Gray_Image.jpg", grey_frame);
 
         char c = cv::waitKey(10);
         if (c == 's') {
