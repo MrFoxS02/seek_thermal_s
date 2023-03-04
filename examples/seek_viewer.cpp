@@ -319,7 +319,7 @@ int main(int argc, char** argv) {
             v4l2_out(v4l2, outframe);
         } else if (mode == "window") {
             //imshow(WINDOW_NAME, outframe);
-            cv::imwrite(outfile, outframe);
+            cv::imwrite("out.jpg", outframe);
 
 
             // If the window is closed by the user all window properties will return -1 and we should terminate
