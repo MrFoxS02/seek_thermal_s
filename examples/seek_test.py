@@ -1,7 +1,7 @@
 import os, sys, re, subprocess
 
 if __name__ == '__main__':
-	cmd = ['./build/examples/seek-test']
+	cmd = ['./../build/examples/seek-test']
 	proc = subprocess.Popen(cmd,
 	 stdout=subprocess.PIPE,
 	)
